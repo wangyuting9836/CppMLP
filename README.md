@@ -391,13 +391,13 @@ void Net::backward() const
 
 用线性回归和Minst手写数字识别进行了测试，测代码在main.cpp中。
 
-### 6.1 线性回归
+### 4.1 线性回归
 
 -   网络结构：`2 → 1`（无激活）
 -   Loss：MSE
 -   观察：`w1, w2, b` 快速逼近真实值 `2, 3, 7`
 
-### 6.2 MNIST
+### 4.2 MNIST
 
 -   网络结构：`784 → 256(ReLU) → 10`
 -   Loss：CrossEntropy
