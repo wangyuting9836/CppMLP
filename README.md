@@ -1,4 +1,4 @@
-# »ùÓÚC++ÊµÏÖ´Ó0ÊµÏÖÈ«Á¬½ÓÉñ¾­ÍøÂç
+# åŸºäºC++å®ç°ä»0å®ç°å…¨è¿æ¥ç¥ç»ç½‘ç»œ
 
 **Author:** Yuting Wang
 
@@ -8,107 +8,109 @@
 
 
 
-Ä¿Â¼
+ç›®å½•
 
-ÊÕÆğ
+æ”¶èµ·
 
-1\. Ç°ÑÔ
+1\. å‰è¨€
 
-2\. ÕûÌåÉè¼Æ¼Ü¹¹
+2\. æ•´ä½“è®¾è®¡æ¶æ„
 
-2.1 Tensor Àà£º¼ÆËãÍ¼µÄºËĞÄ
+2.1 Tensor ç±»ï¼šè®¡ç®—å›¾çš„æ ¸å¿ƒ
 
-2.2 FCLayer Àà£ºÈ«Á¬½Ó²ãµÄÊµÏÖ
+2.2 FCLayer ç±»ï¼šå…¨è¿æ¥å±‚çš„å®ç°
 
-2.3 Net Àà£ºÉñ¾­ÍøÂçµÄ×éºÏÓë¹ÜÀí
+2.3 Net ç±»ï¼šç¥ç»ç½‘ç»œçš„ç»„åˆä¸ç®¡ç†
 
-3\. ¹Ø¼ü¼¼Êõµã
+3\. å…³é”®æŠ€æœ¯ç‚¹
 
-3.1 ¼ÆËãÍ¼Óë×Ô¶¯Î¢·Ö
+3.1 è®¡ç®—å›¾ä¸è‡ªåŠ¨å¾®åˆ†
 
-3.2 Ä£¿é»¯Éè¼Æ
+3.2 æ¨¡å—åŒ–è®¾è®¡
 
-4\. ²âÊÔ
+4\. æµ‹è¯•
 
-4.1 ÏßĞÔ»Ø¹é
+4.1 çº¿æ€§å›å½’
 
 4.2 MNIST
 
-## 1\. Ç°ÑÔ
+5\. äº¤å‰ç†µåå‘ä¼ æ’­å…¬å¼çš„æ¨å¯¼
 
-Éî¶ÈÑ§Ï°¿ò¼ÜËäÈ»ÏÖÔÚ´ó¶à»ùÓÚ Python£¬µ«Æäµ×²ãºËĞÄÎŞÒ»ÀıÍâ¶¼ÊÇÍ¨¹ı C++ÊµÏÖµÄ¸ßĞ§¼ÆËã¡£±¾ÎÄ½«·ÖÏíÎÒÊ¹ÓÃ C++ÊµÏÖµÄÒ»¸öÇáÁ¿¼¶È«Á¬½ÓÉñ¾­ÍøÂç¿ò¼Ü£¬ÖØµã½éÉÜÉè¼ÆË¼Â·¡¢¹Ø¼ü¼¼ÊõÏ¸½ÚÒÔ¼°ÊµÏÖ·½·¨¡£
+## 1\. å‰è¨€
 
-## 2\. ÕûÌåÉè¼Æ¼Ü¹¹
+æ·±åº¦å­¦ä¹ æ¡†æ¶è™½ç„¶ç°åœ¨å¤§å¤šåŸºäº Pythonï¼Œä½†å…¶åº•å±‚æ ¸å¿ƒæ— ä¸€ä¾‹å¤–éƒ½æ˜¯é€šè¿‡ C++å®ç°çš„é«˜æ•ˆè®¡ç®—ã€‚æœ¬æ–‡å°†åˆ†äº«æˆ‘ä½¿ç”¨ C++å®ç°çš„ä¸€ä¸ªè½»é‡çº§å…¨è¿æ¥ç¥ç»ç½‘ç»œæ¡†æ¶ï¼Œé‡ç‚¹ä»‹ç»è®¾è®¡æ€è·¯ã€å…³é”®æŠ€æœ¯ç»†èŠ‚ä»¥åŠå®ç°æ–¹æ³•ã€‚
 
-ÎÒµÄÉñ¾­ÍøÂçÊµÏÖÖ÷Òª°üº¬Èı¸öºËĞÄÀà£ºTensor£¨ÕÅÁ¿£©¡¢FCLayer£¨È«Á¬½Ó²ã£©ºÍ Net£¨Éñ¾­ÍøÂç£©¡£Õû¸ö¿ò¼Ü²ÉÓÃ¼ÆËãÍ¼µÄË¼Ïë£¬Ê¹ÓÃ¶ş²æÊ÷½á¹¹±íÊ¾Ç°Ïò¼ÆËãºÍ·´Ïò´«²¥¹ı³Ì¡£
+## 2\. æ•´ä½“è®¾è®¡æ¶æ„
 
-### 2.1 Tensor Àà£º¼ÆËãÍ¼µÄºËĞÄ
+æˆ‘çš„ç¥ç»ç½‘ç»œå®ç°ä¸»è¦åŒ…å«ä¸‰ä¸ªæ ¸å¿ƒç±»ï¼šTensorï¼ˆå¼ é‡ï¼‰ã€FCLayerï¼ˆå…¨è¿æ¥å±‚ï¼‰å’Œ Netï¼ˆç¥ç»ç½‘ç»œï¼‰ã€‚æ•´ä¸ªæ¡†æ¶é‡‡ç”¨[è®¡ç®—å›¾](https://zhida.zhihu.com/search?content_id=262207647&content_type=Article&match_order=1&q=%E8%AE%A1%E7%AE%97%E5%9B%BE&zhida_source=entity)çš„æ€æƒ³ï¼Œä½¿ç”¨äºŒå‰æ ‘ç»“æ„è¡¨ç¤ºå‰å‘è®¡ç®—å’Œåå‘ä¼ æ’­è¿‡ç¨‹ã€‚
 
-Tensor Àà²»½öÊÇÊı¾İµÄÈİÆ÷£¬¸üÊÇ¼ÆËãÍ¼µÄ»ù±¾½Úµã¡£Ã¿¸ö Tensor ½Úµã¿ÉÒÔ¼ÇÂ¼ËüµÄ²Ù×÷ÀàĞÍ¡¢×óÓÒ×Ó½Úµã£¬´Ó¶øÊµÏÖ×Ô¶¯Î¢·Ö¡£
+### 2.1 Tensor ç±»ï¼šè®¡ç®—å›¾çš„æ ¸å¿ƒ
+
+Tensor ç±»ä¸ä»…æ˜¯æ•°æ®çš„å®¹å™¨ï¼Œæ›´æ˜¯è®¡ç®—å›¾çš„åŸºæœ¬èŠ‚ç‚¹ã€‚æ¯ä¸ª Tensor èŠ‚ç‚¹å¯ä»¥è®°å½•å®ƒçš„æ“ä½œç±»å‹ã€å·¦å³å­èŠ‚ç‚¹ï¼Œä»è€Œå®ç°[è‡ªåŠ¨å¾®åˆ†](https://zhida.zhihu.com/search?content_id=262207647&content_type=Article&match_order=1&q=%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86&zhida_source=entity)ã€‚
 
 ```cpp
 class Tensor 
 {
 public:
-    // ¼ÆËã²Ù×÷ÀàĞÍÃ¶¾Ù
+    // è®¡ç®—æ“ä½œç±»å‹æšä¸¾
     enum CalculateFun {
-        LEAF,               // Ò¶×Ó½Úµã£¨ÊäÈë»ò²ÎÊı£©
-        VECTOR_ADD_VECTOR,  // ÏòÁ¿¼Ó·¨
-        VECTOR_SUB_VECTOR,  // ÏòÁ¿¼õ·¨
-        VECTOR_EXP,         // Ö¸ÊıÔËËã
-        VECTOR_LOG,         // ¶ÔÊıÔËËã
-        VECTOR_RELU,        // ReLU ¼¤»î
-        MATRIX_MUL_VECTOR,  // ¾ØÕó³ËÏòÁ¿
-        VECTOR_ASSIGN,      // ÏòÁ¿¸³Öµ
-        VECTOR_CROSSENTROPY,// ½»²æìØËğÊ§
-        VECTOR_SQUARED      // ¾ù·½Îó²îËğÊ§
+        LEAF,               // å¶å­èŠ‚ç‚¹ï¼ˆè¾“å…¥æˆ–å‚æ•°ï¼‰
+        VECTOR_ADD_VECTOR,  // å‘é‡åŠ æ³•
+        VECTOR_SUB_VECTOR,  // å‘é‡å‡æ³•
+        VECTOR_EXP,         // æŒ‡æ•°è¿ç®—
+        VECTOR_LOG,         // å¯¹æ•°è¿ç®—
+        VECTOR_RELU,        // ReLU æ¿€æ´»
+        MATRIX_MUL_VECTOR,  // çŸ©é˜µä¹˜å‘é‡
+        VECTOR_ASSIGN,      // å‘é‡èµ‹å€¼
+        VECTOR_CROSSENTROPY,// äº¤å‰ç†µæŸå¤±
+        VECTOR_SQUARED      // å‡æ–¹è¯¯å·®æŸå¤±
     };
     
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     explicit Tensor(int row_dim, int col_dim, bool require_grad = false);
     
-    // Ç°Ïò¼ÆËã£º¸ù¾İ²Ù×÷ÀàĞÍ¼ÆËãµ±Ç°½ÚµãµÄÖµ
+    // å‰å‘è®¡ç®—ï¼šæ ¹æ®æ“ä½œç±»å‹è®¡ç®—å½“å‰èŠ‚ç‚¹çš„å€¼
     void forward_calculate_data();
     
-    // ·´Ïò´«²¥£º¼ÆËã×ó×Ó½ÚµãµÄÌİ¶È
+    // åå‘ä¼ æ’­ï¼šè®¡ç®—å·¦å­èŠ‚ç‚¹çš„æ¢¯åº¦
     void backward_calculate_left_grad();
     
-    // ·´Ïò´«²¥£º¼ÆËãÓÒ×Ó½ÚµãµÄÌİ¶È
+    // åå‘ä¼ æ’­ï¼šè®¡ç®—å³å­èŠ‚ç‚¹çš„æ¢¯åº¦
     void backward_calculate_right_grad();
     
-    // »ñÈ¡ºÍÉèÖÃÊı¾İ¡¢Ìİ¶È
+    // è·å–å’Œè®¾ç½®æ•°æ®ã€æ¢¯åº¦
     const std::vector<std::vector<float>>& get_grad() const;
     std::vector<std::vector<float>>& get_data();
     void set_data(const std::vector<float>& value);
     
-    // ÇåÁãÌİ¶È
+    // æ¸…é›¶æ¢¯åº¦
     void zero_grad();
     
-    // ÇåÁãÌİ¶È
+    // æ¸…é›¶æ¢¯åº¦
     void zero_grad();
 
-    // ÉèÖÃ¼ÆËãÍ¼¹ØÏµ
+    // è®¾ç½®è®¡ç®—å›¾å…³ç³»
     void set_left(Tensor* l);
     void set_right(Tensor* r);
     void set_calculate_fn(CalculateFun fn);
     
 private:
-    std::vector<std::vector<float>> data;    // Êı¾İ´æ´¢
-    std::vector<std::vector<float>> grad;    // Ìİ¶È´æ´¢
-    std::vector<float> soft_max_data;        // Softmax ½á¹û£¨ÓÃÓÚ½»²æìØ£©
-    Tensor* left = nullptr;                  // ×ó×Ó½Úµã
-    Tensor* right = nullptr;                 // ÓÒ×Ó½Úµã
-    CalculateFun calculate_fn = LEAF;        // ¼ÆËã²Ù×÷ÀàĞÍ
-    int row_dimension, col_dimension;        // Î¬¶ÈĞÅÏ¢
-    bool require_grad = false;               // ÊÇ·ñĞèÒª¼ÆËãÌİ¶È
+    std::vector<std::vector<float>> data;    // æ•°æ®å­˜å‚¨
+    std::vector<std::vector<float>> grad;    // æ¢¯åº¦å­˜å‚¨
+    std::vector<float> soft_max_data;        // Softmax ç»“æœï¼ˆç”¨äºäº¤å‰ç†µï¼‰
+    Tensor* left = nullptr;                  // å·¦å­èŠ‚ç‚¹
+    Tensor* right = nullptr;                 // å³å­èŠ‚ç‚¹
+    CalculateFun calculate_fn = LEAF;        // è®¡ç®—æ“ä½œç±»å‹
+    int row_dimension, col_dimension;        // ç»´åº¦ä¿¡æ¯
+    bool require_grad = false;               // æ˜¯å¦éœ€è¦è®¡ç®—æ¢¯åº¦
 };
 ```
 
-**¼ÆËãÍ¼Óë×Ô¶¯Î¢·Ö**
+**è®¡ç®—å›¾ä¸è‡ªåŠ¨å¾®åˆ†**
 
-Tensor ÀàµÄºËĞÄÔÚÓÚËü¹¹³ÉÁË¼ÆËãÍ¼µÄ»ù±¾µ¥Ôª¡£Ã¿¸ö Tensor ½ÚµãÖªµÀÈçºÎ¸ù¾İ×Ó½ÚµãµÄÖµ¼ÆËã×Ô¼ºµÄÖµ£¨Ç°Ïò´«²¥£©£¬ÒÔ¼°ÈçºÎ½«Ìİ¶È´«²¥»Ø×Ó½Úµã£¨·´Ïò´«²¥£©¡£
+Tensor ç±»çš„æ ¸å¿ƒåœ¨äºå®ƒæ„æˆäº†è®¡ç®—å›¾çš„åŸºæœ¬å•å…ƒã€‚æ¯ä¸ª Tensor èŠ‚ç‚¹çŸ¥é“å¦‚ä½•æ ¹æ®å­èŠ‚ç‚¹çš„å€¼è®¡ç®—è‡ªå·±çš„å€¼ï¼ˆå‰å‘ä¼ æ’­ï¼‰ï¼Œä»¥åŠå¦‚ä½•å°†æ¢¯åº¦ä¼ æ’­å›å­èŠ‚ç‚¹ï¼ˆåå‘ä¼ æ’­ï¼‰ã€‚
 
-ÒÔ¾ØÕó³Ë·¨ÎªÀı£¬Ç°Ïò¼ÆËãÈçÏÂ£º
+ä»¥çŸ©é˜µä¹˜æ³•ä¸ºä¾‹ï¼Œå‰å‘è®¡ç®—å¦‚ä¸‹ï¼š
 
 ```cpp
 void Tensor::forward_calculate_data()
@@ -131,9 +133,9 @@ void Tensor::forward_calculate_data()
 }
 ```
 
-·´Ïò´«²¥Ê±£¬¸ù¾İµ±Ç° Tensor ½ÚµãµÄĞÅÏ¢ºÍ×óÓÒº¢×Ó Tensor ½ÚµãµÄ data ¼ÆËã×óÓÒº¢×Ó Tensor ½ÚµãµÄÌİ¶È¡£
+åå‘ä¼ æ’­æ—¶ï¼Œæ ¹æ®å½“å‰ Tensor èŠ‚ç‚¹çš„ä¿¡æ¯å’Œå·¦å³å­©å­ Tensor èŠ‚ç‚¹çš„ data è®¡ç®—å·¦å³å­©å­ Tensor èŠ‚ç‚¹çš„æ¢¯åº¦ã€‚
 
-ÒÔ¾ØÕó³Ë·¨ÎªÀı£¬·´Ïò´«²¥ÈçÏÂ£º
+ä»¥çŸ©é˜µä¹˜æ³•ä¸ºä¾‹ï¼Œåå‘ä¼ æ’­å¦‚ä¸‹ï¼š
 
 ```cpp
 void Tensor::backward_calculate_left_grad()
@@ -173,70 +175,70 @@ void Tensor::backward_calculate_right_grad()
 }
 ```
 
-### 2.2 FCLayer Àà£ºÈ«Á¬½Ó²ãµÄÊµÏÖ
+### 2.2 FCLayer ç±»ï¼šå…¨è¿æ¥å±‚çš„å®ç°
 
-FCLayer Àà·â×°ÁËÒ»¸öÍêÕûµÄÈ«Á¬½Ó²ã£¬°üÀ¨È¨ÖØ¾ØÕó¡¢Æ«ÖÃÏòÁ¿ÒÔ¼°¼¤»îº¯Êı¡£
+FCLayer ç±»å°è£…äº†ä¸€ä¸ªå®Œæ•´çš„å…¨è¿æ¥å±‚ï¼ŒåŒ…æ‹¬æƒé‡çŸ©é˜µã€åç½®å‘é‡ä»¥åŠæ¿€æ´»å‡½æ•°ã€‚
 
 ```cpp
 class FCLayer 
 {
 public:
-    enum ActivationFun { NONE, RELU };  // ¼¤»îº¯ÊıÀàĞÍ
+    enum ActivationFun { NONE, RELU };  // æ¿€æ´»å‡½æ•°ç±»å‹
     
-    // ¹¹Ôìº¯Êı£º´´½¨²ã²¢¹¹½¨¼ÆËãÍ¼
+    // æ„é€ å‡½æ•°ï¼šåˆ›å»ºå±‚å¹¶æ„å»ºè®¡ç®—å›¾
     FCLayer(int num_of_inputs, int num_of_outputs, ActivationFun fn);
     
-    // Ç°Ïò¼ÆËã
+    // å‰å‘è®¡ç®—
     void calculate() const;
     
-    // ²ÎÊı¸üĞÂ
+    // å‚æ•°æ›´æ–°
     void update_parameters(float learn_rate) const;
     
-    // ³õÊ¼»¯²ÎÊı
+    // åˆå§‹åŒ–å‚æ•°
     void init_parameters(float mean, float variance) const;
     
-    // »ñÈ¡ÊäÈëÊä³ö Tensor
+    // è·å–è¾“å…¥è¾“å‡º Tensor
     Tensor* GetInputs() const;
     Tensor* GetOutputs() const;
     
 private:
-    Tensor* inputs;   // ÊäÈëÕÅÁ¿
-    Tensor* outputs;  // Êä³öÕÅÁ¿
-    Tensor* weights;  // È¨ÖØ¾ØÕó
-    Tensor* bias;     // Æ«ÖÃÏòÁ¿
-    std::vector<Tensor*> intermediate_results;  // ÖĞ¼ä¼ÆËã½á¹û
-    ActivationFun activation_fn;  // ¼¤»îº¯ÊıÀàĞÍ
+    Tensor* inputs;   // è¾“å…¥å¼ é‡
+    Tensor* outputs;  // è¾“å‡ºå¼ é‡
+    Tensor* weights;  // æƒé‡çŸ©é˜µ
+    Tensor* bias;     // åç½®å‘é‡
+    std::vector<Tensor*> intermediate_results;  // ä¸­é—´è®¡ç®—ç»“æœ
+    ActivationFun activation_fn;  // æ¿€æ´»å‡½æ•°ç±»å‹
 };
 ```
 
-**²ãµÄ¼ÆËãÍ¼¹¹½¨**
+**å±‚çš„è®¡ç®—å›¾æ„å»º**
 
-ÔÚ¹¹Ôìº¯ÊıÖĞ£¬FCLayer »á¹¹½¨ÍêÕûµÄ¼ÆËãÍ¼£º
+åœ¨æ„é€ å‡½æ•°ä¸­ï¼ŒFCLayer ä¼šæ„å»ºå®Œæ•´çš„è®¡ç®—å›¾ï¼š
 
 ```cpp
 FCLayer::FCLayer(int num_of_inputs, int num_of_outputs, ActivationFun fn) : activation_fn(fn) 
 {
-    // ´´½¨¸÷ÖÖ Tensor
+    // åˆ›å»ºå„ç§ Tensor
     inputs = new Tensor(1, num_of_inputs);
     outputs = new Tensor(1, num_of_outputs, true);
     weights = new Tensor(num_of_outputs, num_of_inputs, true);
     bias = new Tensor(1, num_of_outputs, true);
     
-    // ¹¹½¨¼ÆËãÍ¼£ºWx
+    // æ„å»ºè®¡ç®—å›¾ï¼šWx
     auto* w_x = new Tensor(1, num_of_outputs, true);
     w_x->set_left(weights);
     w_x->set_right(inputs);
     w_x->set_calculate_fn(Tensor::CalculateFun::MATRIX_MUL_VECTOR);
     intermediate_results.emplace_back(w_x);
     
-    // ¹¹½¨¼ÆËãÍ¼£ºWx + b
+    // æ„å»ºè®¡ç®—å›¾ï¼šWx + b
     auto* w_x_b = new Tensor(1, num_of_outputs, true);
     w_x_b->set_left(w_x);
     w_x_b->set_right(bias);
     w_x_b->set_calculate_fn(Tensor::CalculateFun::VECTOR_ADD_VECTOR);
     intermediate_results.emplace_back(w_x_b);
     
-    // Ìí¼Ó¼¤»îº¯Êı
+    // æ·»åŠ æ¿€æ´»å‡½æ•°
     switch (activation_fn) 
     {
     case RELU:
@@ -251,61 +253,61 @@ FCLayer::FCLayer(int num_of_inputs, int num_of_outputs, ActivationFun fn) : acti
 }
 ```
 
-ÕâÑù£¬Ã¿¸öÈ«Á¬½Ó²ã¶¼ĞÎ³ÉÁËÒ»¸öĞ¡µÄ¼ÆËãÍ¼×ÓÍø£¬¶à¸ö²ãÁ¬½ÓÆğÀ´¾ÍĞÎ³ÉÁËÍêÕûµÄÉñ¾­ÍøÂç¼ÆËãÍ¼¡£ÉÏÃæµÄ¹¹Ôì¹ı³ÌÖĞ°ÑËùÓĞÖĞ¼ä½Úµã¶¼Èû½ø intermediate\_results¡£
+è¿™æ ·ï¼Œæ¯ä¸ªå…¨è¿æ¥å±‚éƒ½å½¢æˆäº†ä¸€ä¸ªå°çš„è®¡ç®—å›¾å­ç½‘ï¼Œå¤šä¸ªå±‚è¿æ¥èµ·æ¥å°±å½¢æˆäº†å®Œæ•´çš„ç¥ç»ç½‘ç»œè®¡ç®—å›¾ã€‚ä¸Šé¢çš„æ„é€ è¿‡ç¨‹ä¸­æŠŠæ‰€æœ‰ä¸­é—´èŠ‚ç‚¹éƒ½å¡è¿› intermediate\_resultsã€‚
 
-### 2.3 Net Àà£ºÉñ¾­ÍøÂçµÄ×éºÏÓë¹ÜÀí
+### 2.3 Net ç±»ï¼šç¥ç»ç½‘ç»œçš„ç»„åˆä¸ç®¡ç†
 
-Net Àà¸ºÔğ×éºÏ¶à¸öÈ«Á¬½Ó²ã£¬²¢Ìí¼ÓËğÊ§º¯Êı£¬ĞÎ³ÉÍêÕûµÄÉñ¾­ÍøÂç¡£
+Net ç±»è´Ÿè´£ç»„åˆå¤šä¸ªå…¨è¿æ¥å±‚ï¼Œå¹¶æ·»åŠ æŸå¤±å‡½æ•°ï¼Œå½¢æˆå®Œæ•´çš„ç¥ç»ç½‘ç»œã€‚
 
 ```cpp
 class Net 
 {
 public:
-    enum LossFun { MEAN_SQUARED, CROSS_ENTROPY };  // ËğÊ§º¯ÊıÀàĞÍ
+    enum LossFun { MEAN_SQUARED, CROSS_ENTROPY };  // æŸå¤±å‡½æ•°ç±»å‹
     
     Net();
     
-    // Ìí¼ÓÍøÂç²ã
+    // æ·»åŠ ç½‘ç»œå±‚
     void add_layer(int num_of_inputs, int num_of_outputs, 
                   FCLayer::ActivationFun fn);
     
-    // ÉèÖÃËğÊ§º¯Êı
+    // è®¾ç½®æŸå¤±å‡½æ•°
     void set_loss_function(LossFun fn);
     
-    // ÑµÁ·ºÍÔ¤²â
+    // è®­ç»ƒå’Œé¢„æµ‹
     float train(const std::vector<std::vector<float>>& input_value, 
                 const std::vector<std::vector<float>>& label_value) const;
     float forward(const std::vector<float>& input_value, 
                  const std::vector<float>& label_value) const;
     
-    // ·´Ïò´«²¥
+    // åå‘ä¼ æ’­
     void backward() const;
     
-    // ²ÎÊı¸üĞÂ
+    // å‚æ•°æ›´æ–°
     void SGD(float learn_rate) const;
     
 private:
-    std::vector<FCLayer*> layers;  // ÍøÂç²ã¼¯ºÏ
-    Tensor* y_label;               // ±êÇ©ÕÅÁ¿
-    Tensor* loss;                  // ËğÊ§ÕÅÁ¿
+    std::vector<FCLayer*> layers;  // ç½‘ç»œå±‚é›†åˆ
+    Tensor* y_label;               // æ ‡ç­¾å¼ é‡
+    Tensor* loss;                  // æŸå¤±å¼ é‡
 };
 ```
 
-**ÍøÂç¹¹½¨ÓëËğÊ§º¯Êı**
+**ç½‘ç»œæ„å»ºä¸æŸå¤±å‡½æ•°**
 
-ÍøÂçÍ¨¹ıÖğ²ãÌí¼ÓµÄ·½Ê½¹¹½¨£¬²¢×îÖÕÌí¼ÓËğÊ§º¯Êı£º
+ç½‘ç»œé€šè¿‡é€å±‚æ·»åŠ çš„æ–¹å¼æ„å»ºï¼Œå¹¶æœ€ç»ˆæ·»åŠ æŸå¤±å‡½æ•°ï¼š
 
 ```cpp
 void Net::add_layer(int num_of_inputs, int num_of_outputs, FCLayer::ActivationFun activation_fn)
 {
 	if (layers.empty())
 	{
-		// µÚÒ»²ã
+		// ç¬¬ä¸€å±‚
 		layers.emplace_back(new FCLayer(num_of_inputs, num_of_outputs, activation_fn));
 	}
 	else
 	{
-		// ºóĞø²ã£º½«Ç°Ò»²ãµÄÊä³ö×÷Îªµ±Ç°²ãµÄÊäÈë
+		// åç»­å±‚ï¼šå°†å‰ä¸€å±‚çš„è¾“å‡ºä½œä¸ºå½“å‰å±‚çš„è¾“å…¥
 		layers.emplace_back(new FCLayer(num_of_inputs, num_of_outputs, activation_fn));
 
 		Tensor* cur_layer_inputs = (*layers.rbegin())->GetInputs();
@@ -334,9 +336,9 @@ void Net::set_loss_function(LossFun fn)
 }
 ```
 
-**·´Ïò´«²¥Ëã·¨**
+**åå‘ä¼ æ’­ç®—æ³•**
 
-·´Ïò´«²¥²ÉÓÃÉî¶ÈÓÅÏÈ±éÀú¼ÆËãÍ¼µÄ·½Ê½£¬Ê¹ÓÃÕ»½á¹¹ÊµÏÖ£º
+åå‘ä¼ æ’­é‡‡ç”¨æ·±åº¦ä¼˜å…ˆéå†è®¡ç®—å›¾çš„æ–¹å¼ï¼Œä½¿ç”¨æ ˆç»“æ„å®ç°ï¼š
 
 ```cpp
 void Net::backward() const
@@ -347,7 +349,7 @@ void Net::backward() const
 	}
 
 	std::stack<Tensor*> tensor_stack;
-	loss->one_grad(); // ÉèÖÃËğÊ§º¯ÊıµÄÌİ¶ÈÎª 1
+	loss->one_grad(); // è®¾ç½®æŸå¤±å‡½æ•°çš„æ¢¯åº¦ä¸º 1
 	tensor_stack.push(loss);
 	while (true)
 	{
@@ -359,13 +361,13 @@ void Net::backward() const
 		tensor_stack.pop();
 		Tensor* left = cur_tensor->get_left();
 		Tensor* right = cur_tensor->get_right();
-		// Ïò×ó×Ó½Úµã´«²¥Ìİ¶È
+		// å‘å·¦å­èŠ‚ç‚¹ä¼ æ’­æ¢¯åº¦
 		if (left != nullptr && left->is_require_grad())
 		{
 			cur_tensor->backward_calculate_left_grad();
 			tensor_stack.push(left);
 		}
-		// ÏòÓÒ×Ó½Úµã´«²¥Ìİ¶È
+		// å‘å³å­èŠ‚ç‚¹ä¼ æ’­æ¢¯åº¦
 		if (right != nullptr && right->is_require_grad())
 		{
 			cur_tensor->backward_calculate_right_grad();
@@ -375,34 +377,34 @@ void Net::backward() const
 }
 ```
 
-ÕâÖÖÊµÏÖ·½Ê½µÄÓÅµãÊÇÇåÎúÒ×¶®£¬ÇÒÓë¼ÆËãÍ¼µÄ½á¹¹ÍêÈ«¶ÔÓ¦¡£
+è¿™ç§å®ç°æ–¹å¼çš„ä¼˜ç‚¹æ˜¯æ¸…æ™°æ˜“æ‡‚ï¼Œä¸”ä¸è®¡ç®—å›¾çš„ç»“æ„å®Œå…¨å¯¹åº”ã€‚
 
-## 3\. ¹Ø¼ü¼¼Êõµã
+## 3\. å…³é”®æŠ€æœ¯ç‚¹
 
-### 3.1 ¼ÆËãÍ¼Óë×Ô¶¯Î¢·Ö
+### 3.1 è®¡ç®—å›¾ä¸è‡ªåŠ¨å¾®åˆ†
 
-±¾ÎÄÊµÏÖµÄºËĞÄÊÇ¼ÆËãÍ¼¸ÅÄî¡£Ã¿¸ö Tensor ½Úµã²»½ö´æ´¢Êı¾İ£¬»¹ÖªµÀÈçºÎ¼ÆËã×Ô¼ºµÄÖµºÍÈçºÎ´«²¥Ìİ¶È¡£ÕâÖÖÉè¼ÆÊ¹µÃÌí¼ÓĞÂµÄ¼ÆËã²Ù×÷±äµÃÈİÒ×£¬Ö»ĞèÊµÏÖÇ°Ïò¼ÆËãºÍ·´Ïò´«²¥·½·¨¼´¿É¡£
+æœ¬æ–‡å®ç°çš„æ ¸å¿ƒæ˜¯è®¡ç®—å›¾æ¦‚å¿µã€‚æ¯ä¸ª Tensor èŠ‚ç‚¹ä¸ä»…å­˜å‚¨æ•°æ®ï¼Œè¿˜çŸ¥é“å¦‚ä½•è®¡ç®—è‡ªå·±çš„å€¼å’Œå¦‚ä½•ä¼ æ’­æ¢¯åº¦ã€‚è¿™ç§è®¾è®¡ä½¿å¾—æ·»åŠ æ–°çš„è®¡ç®—æ“ä½œå˜å¾—å®¹æ˜“ï¼Œåªéœ€å®ç°å‰å‘è®¡ç®—å’Œåå‘ä¼ æ’­æ–¹æ³•å³å¯ã€‚
 
-### 3.2 Ä£¿é»¯Éè¼Æ
+### 3.2 æ¨¡å—åŒ–è®¾è®¡
 
-Í¨¹ı½«Éñ¾­ÍøÂç·Ö½âÎª Tensor¡¢FCLayer ºÍ Net Èı¸ö²ã´Î£¬ÊµÏÖÁËÁ¼ºÃµÄÄ£¿é»¯¡£Tensor ¸ºÔğ»ù±¾¼ÆËã£¬FCLayer ¸ºÔğ²ãÄÚ¼ÆËã£¬Net ¸ºÔğÕûÌåÍøÂç×éºÏ¡£ÕâÖÖÉè¼ÆÊ¹µÃ´úÂëÒ×ÓÚÀí½âºÍÀ©Õ¹¡£
+é€šè¿‡å°†ç¥ç»ç½‘ç»œåˆ†è§£ä¸º Tensorã€FCLayer å’Œ Net ä¸‰ä¸ªå±‚æ¬¡ï¼Œå®ç°äº†è‰¯å¥½çš„æ¨¡å—åŒ–ã€‚Tensor è´Ÿè´£åŸºæœ¬è®¡ç®—ï¼ŒFCLayer è´Ÿè´£å±‚å†…è®¡ç®—ï¼ŒNet è´Ÿè´£æ•´ä½“ç½‘ç»œç»„åˆã€‚è¿™ç§è®¾è®¡ä½¿å¾—ä»£ç æ˜“äºç†è§£å’Œæ‰©å±•ã€‚
 
-## 4\. ²âÊÔ
+## 4\. æµ‹è¯•
 
-ÓÃÏßĞÔ»Ø¹éºÍ Mnist ÊÖĞ´Êı×ÖÊ¶±ğ½øĞĞÁË²âÊÔ£¬´úÂëÔÚ main.cpp ÖĞ¡£
+ç”¨[çº¿æ€§å›å½’](https://zhida.zhihu.com/search?content_id=262207647&content_type=Article&match_order=1&q=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92&zhida_source=entity)å’Œ [Mnist](https://zhida.zhihu.com/search?content_id=262207647&content_type=Article&match_order=1&q=Mnist&zhida_source=entity) æ‰‹å†™æ•°å­—è¯†åˆ«è¿›è¡Œäº†æµ‹è¯•ï¼Œä»£ç åœ¨ main.cpp ä¸­ã€‚
 
-### 4.1 ÏßĞÔ»Ø¹é
+### 4.1 çº¿æ€§å›å½’
 
--   ÍøÂç½á¹¹£º2 ¡ú 1£¨ÎŞ¼¤»î£©
--   Loss£ºMSE
+-   ç½‘ç»œç»“æ„ï¼š2 â†’ 1ï¼ˆæ— æ¿€æ´»ï¼‰
+-   Lossï¼šMSE
 
 ```cpp
-// ÏßĞÔ»Ø¹é
+// çº¿æ€§å›å½’
 void linear_regression()
 {
-	// ¾ùÔÈ·Ö²¼ U(0, 10)
+	// å‡åŒ€åˆ†å¸ƒ U(0, 10)
 	std::uniform_real_distribution<float> u_dist(0.0f, 10.0f);
-	// ÕıÌ¬·Ö²¼ N(0, 1)
+	// æ­£æ€åˆ†å¸ƒ N(0, 1)
 	std::normal_distribution<float> n_dist(0.0f, 1.0f);
 
 	int train_num = 40000;
@@ -420,7 +422,7 @@ void linear_regression()
 	{
 		float x1 = u_dist(rand_generator());
 		float x2 = u_dist(rand_generator());
-		// ´øÔëÉùµÄÖµ
+		// å¸¦å™ªå£°çš„å€¼
 		float y = true_w1 * x1 + true_w2 * x2 + true_b + n_dist(rand_generator());
 		training_datas[i].emplace_back(x1);
 		training_datas[i].emplace_back(x2);
@@ -431,7 +433,7 @@ void linear_regression()
 	{
 		float x1 = u_dist(rand_generator());
 		float x2 = u_dist(rand_generator());
-		// ´øÔëÉùµÄÖµ
+		// å¸¦å™ªå£°çš„å€¼
 		float y = true_w1 * x1 + true_w2 * x2 + true_b + n_dist(rand_generator());
 		test_datas[i].emplace_back(x1);
 		test_datas[i].emplace_back(x2);
@@ -441,7 +443,7 @@ void linear_regression()
 	const int batch_size = 10;
 	float lr = 0.001;
 
-	// ¹¹½¨ÍøÂç
+	// æ„å»ºç½‘ç»œ
 	Net nn;
 	nn.add_layer(2, 1, FCLayer::ActivationFun::NONE);
 	nn.set_loss_function(Net::LossFun::MEAN_SQUARED);
@@ -453,7 +455,7 @@ void linear_regression()
 	std::vector<int> data_index_vec(train_num, 0);
 	std::iota(data_index_vec.begin(), data_index_vec.end(), 0);
 
-	// ÑµÁ·
+	// è®­ç»ƒ
 	for (int epoch = 0; epoch < 20; ++epoch)
 	{
 		float train_loss_value = 0.0f;
@@ -511,7 +513,7 @@ void linear_regression()
 }
 ```
 
-ÔËĞĞ½á¹ûÈçÏÂ£¬¿ÉÒÔ·¢ÏÖw1, w2, b ¿ìËÙ±Æ½üÕæÊµÖµ 2, 3, 7
+è¿è¡Œç»“æœå¦‚ä¸‹ï¼Œå¯ä»¥å‘ç° w1, w2, b å¿«é€Ÿé€¼è¿‘çœŸå®å€¼ 2, 3, 7
 
 ```powershell
 --------------
@@ -562,12 +564,12 @@ test_acc: 0.953, test_loss: 0.504345
 
 ### 4.2 MNIST
 
--   ÍøÂç½á¹¹£º784 ¡ú 256(ReLU) ¡ú 10
--   Loss£ºCrossEntropy
--   Batch size£º10
+-   ç½‘ç»œç»“æ„ï¼š784 â†’ 256(ReLU) â†’ 10
+-   Lossï¼šCrossEntropy
+-   Batch sizeï¼š10
 
 ```cpp
-// Ê¶±ğÊÖĞ´Êı×Ö£¬Ê¹ÓÃMNISTÊı¾İ¼¯ÑµÁ·
+// è¯†åˆ«æ‰‹å†™æ•°å­—ï¼Œä½¿ç”¨ MNIST æ•°æ®é›†è®­ç»ƒ
 void MNIST_DATA_mlp()
 {
 	MNIST_DATA_set dataset = read_MNIST_DATA();
@@ -578,7 +580,7 @@ void MNIST_DATA_mlp()
 	const int batch_size = 10;
 	float lr = 0.001;
 
-	// ¹¹½¨ÍøÂç
+	// æ„å»ºç½‘ç»œ
 	Net nn;
 	nn.add_layer(784, 256, FCLayer::ActivationFun::RELU);
 	nn.add_layer(256, 10, FCLayer::ActivationFun::NONE);
@@ -591,7 +593,7 @@ void MNIST_DATA_mlp()
 	std::vector<int> data_index_vec(train_num, 0);
 	std::iota(data_index_vec.begin(), data_index_vec.end(), 0);
 
-	// ÑµÁ·
+	// è®­ç»ƒ
 	for (int epoch = 0; epoch < 10; ++epoch)
 	{
 		float train_loss_value = 0.0f;
@@ -618,7 +620,7 @@ void MNIST_DATA_mlp()
 		std::cout << "loss: " << train_loss_value / static_cast<float >(train_num) << std::endl;
 	}
 
-	// ÔÚÑµÁ·¼¯ÉÏµÄ×¼È·ÂÊ
+	// åœ¨è®­ç»ƒé›†ä¸Šçš„å‡†ç¡®ç‡
 	float train_lose = 0.0f;
 	int train_acc_num = 0;
 	for (int i = 0; i < train_num; ++i)
@@ -639,7 +641,7 @@ void MNIST_DATA_mlp()
 	std::cout << "train_acc: " << static_cast<float>(train_acc_num) / static_cast<float>(train_num) << ", train_loss: "
 			  << train_lose / static_cast<float>(train_num) << std::endl;
 
-	// ÔÚ²âÊÔ¼¯ÉÏµÄ×¼È·ÂÊ
+	// åœ¨æµ‹è¯•é›†ä¸Šçš„å‡†ç¡®ç‡
 	float test_lose = 0.0f;
 	int test_acc_num = 0;
 	for (int i = 0; i < test_num; ++i)
@@ -660,7 +662,7 @@ void MNIST_DATA_mlp()
 }
 ```
 
-ÔËĞĞ½á¹ûÈçÏÂ
+è¿è¡Œç»“æœå¦‚ä¸‹
 
 ```powershell
 --------------
@@ -677,3 +679,85 @@ loss: 0.120594
 train_acc: 0.781367, train_loss: 1.17369
 test_acc: 0.7945, test_loss: 1.15192
 ```
+
+## 5\. äº¤å‰ç†µåå‘ä¼ æ’­å…¬å¼çš„æ¨å¯¼
+
+å®ç°åå‘ä¼ æ’­çš„æ—¶å€™éœ€è¦è®¡ç®—æ¢¯åº¦ï¼Œéœ€è¦ä¸€äº›æ¨å¯¼ï¼Œä¸‹é¢ä»¥äº¤å‰ç†µåå‘ä¼ æ’­å…¬å¼çš„æ¨å¯¼è¿‡ç¨‹ä¸ºä¾‹ä»‹ç»ã€‚
+
+```cpp
+case CalculateFun::VECTOR_CROSSENTROPY:
+	for (int j = 0; j < this->left->col_dimension; ++j)
+	{
+		if (this->right->data[0][j] == 0.0f)
+		{
+			this->left->grad[0][j] += this->grad[0][0] * this->left->soft_max_data[j];
+		}
+		else
+		{
+			this->left->grad[0][j] += this->grad[0][0] * (this->left->soft_max_data[j] - 1);
+		}
+	}
+	break;
+```
+
+ä¸Šé¢ä»£ç å®ç°çš„æ˜¯äº¤å‰ç†µåå‘ä¼ æ’­çš„è®¡ç®—ï¼Œä¸‹é¢æ¨å¯¼ä¸€ä¸‹å®ƒçš„æ¢¯åº¦ï¼Œè¿™æ ·å®¹æ˜“ç†è§£ä¸Šé¢çš„å®ç°ã€‚
+
+**å‰å‘ä¼ æ’­**
+
+å‡è®¾åˆ†ç±»ä»»åŠ¡ç±»åˆ«æ•°æ˜¯ $V$ ï¼Œéšå±‚è¾“å‡ºæ˜¯$V$ç»´å‘é‡ $\mathbf{h}$ ï¼Œæ ‡å‡†çš„ one-hot å‘é‡æ˜¯ $\mathbf{y}$ ï¼Œæ­£ç¡®çš„ç±»åˆ«æ˜¯ $k$ ï¼Œä¹Ÿå°±æ˜¯ $\begin{cases} 	\mathbf{y}_i=1&		i=k\\ 	\mathbf{y}_i=0&		i\neq k\\ \end{cases}$ ã€‚
+
+é‚£ä¹ˆäº¤å‰ç†µæŸå¤±å¯ä»¥å®šä¹‰ä¸ºï¼š $\mathcal{L}(\mathbf y, \mathbf q) = -\sum_i \mathbf{y}_i \log(\mathbf{q}_i)$ ã€‚
+
+å…¶ä¸­ $\mathbf q = \mathrm{Softmax}(\mathbf h)$ ã€‚Softmax å‡½æ•°å…·ä½“å½¢å¼ä¸ºï¼š$\mathbf{q}_i = \frac{e^{\mathbf{h}_i}}{\sum_{j}{e^{\mathbf{h}_j}}}$ ã€‚ä¸Šé¢ä»£ç ä¸­ soft\_max\_data å°±æ˜¯å¯¹åº” $\mathbf q$ ã€‚
+
+**åå‘ä¼ æ’­**
+
+$\mathcal{L}$ å¯¹ $\mathbf{h}_i$ çš„æ¢¯åº¦è¦åˆ†ä¸¤ç§æƒ…å†µï¼š
+
+$\frac{\partial{\mathcal{L}}}{\partial{\mathbf{h}_i}} = \left\{\begin{array}{ll}\mathbf{q}_i  - 1  & i = k \\\mathbf{q}_i  & i\neq k\end{array} \right.  					$
+
+**æ¨å¯¼è¿‡ç¨‹**
+
+æ ¹æ®æ±‚å¯¼æ³•åˆ™æœ‰ï¼š
+
+$ \begin{aligned} 	\frac{\partial \mathcal{L}}{\partial \mathbf{h}_i}&=-\sum_j{\frac{\partial \mathcal{L}}{\partial \mathbf{q}_j}\cdot \frac{\partial \mathbf{q}_j}{\partial \mathbf{h}_i}}\\&=-\sum_j{\frac{\mathbf{y}_j}{\mathbf{q}_j}\cdot \frac{\partial \mathbf{q}_j}{\partial \mathbf{h}_i}}\\ 	&=-\frac{\mathbf{y}_k}{\mathbf{q}_k}\cdot \frac{\partial \mathbf{q}_k}{\partial \mathbf{h}_i}-\sum_{j\ne k}{\frac{\mathbf{y}_j}{\mathbf{q}_j}\cdot \frac{\partial \mathbf{q}_j}{\partial \mathbf{h}_i}}\\  	&=-\frac{1}{\mathbf{q}_k}\cdot \frac{\partial \mathbf{q}_k}{\partial \mathbf{h}_i} \end{aligned}$
+
+å…¶ä¸­ $\frac{\partial{\mathbf{q}_j}}{\partial{\mathbf{h}_i}}$ å°±æ˜¯ Softmax å‡½æ•°çš„æ¢¯åº¦ï¼Œæ¨å¯¼è¿‡ç¨‹æ”¾åœ¨æœ€åï¼Œè¿™é‡Œå…ˆç›´æ¥ç»™å‡ºç»“æœï¼š
+
+$\frac{\partial{\mathbf{q}_j}}{\partial{\mathbf{h}_i}} = \left\{\begin{array}{ll}\mathbf{q}_i (1 - \mathbf{q}_i) & j = i \\-\mathbf{q}_i \mathbf{q}_j & j\neq i\end{array} \right. 					$ ã€‚
+
+ä¸‹é¢åˆ†ä¸¤ç§æƒ…å†µè®¨è®ºï¼š
+
+1\. å½“$i = k$æ—¶ï¼š
+
+$ \frac{\partial \mathcal{L}}{\partial \mathbf{h}_i}=-\frac{1}{\mathbf{q}_k}\cdot \frac{\partial \mathbf{q}_k}{\partial \mathbf{h}_i}=-\frac{1}{\mathbf{q}_i}\mathbf{q}_i(1-\mathbf{q}_i)=\mathbf{q}_i-1$
+
+è¿™å¯¹åº”ä¸‹é¢ä»£ç ï¼š
+
+```cpp
+this->left->grad[0][j] += this->grad[0][0] * (this->left->soft_max_data[j] - 1);
+```
+
+2\. å½“ $i \ne k$ æ—¶ï¼š
+
+$ \frac{\partial \mathcal{L}}{\partial \mathbf{h}_i}=-\frac{1}{\mathbf{q}_k}\cdot \frac{\partial \mathbf{q}_k}{\partial \mathbf{h}_i}=-\frac{1}{\mathbf{q}_k}\left( -\mathbf{q}_i\mathbf{q}_k \right) =\mathbf{q}_i$
+
+è¿™å¯¹åº”ä¸‹é¢ä»£ç ï¼š
+
+```cpp
+this->left->grad[0][j] += this->grad[0][0] * this->left->soft_max_data[j];
+```
+
+**Softmax æ¢¯åº¦**
+
+Softmax å‡½æ•°çš„å½¢å¼ä¸ºï¼š $$$ \mathbf{q}_j = \frac{e^{\mathbf{h}_j}}{\sum_{l}{e^{\mathbf{h}_l}}} = \frac{e^{\mathbf{h}_j}}{e^{\mathbf{h}_i} + \sum_{l \neq i}{e^{\mathbf{h}_l}}} $$$
+
+è¿™é‡Œä¹Ÿåˆ†ä¸¤ç§æƒ…å†µè®¨è®ºï¼š
+
+1\. å½“$j = i$æ—¶ï¼š
+
+$ \begin{aligned} \frac{\partial{\mathbf{q}_j}}{\partial{\mathbf{h}_i}} &= \frac{e^{\mathbf{h}_j}}{e^{\mathbf{h}_i} + \sum_{l \neq i}{e^{\mathbf{h}_l}}} - \frac{e^{\mathbf{h}_j} \cdot e^{\mathbf{h}_j}}{\left(e^{\mathbf{h}_i} + \sum_{l \neq i}{e^{\mathbf{h}_l}}\right)^2} \\ &= \mathbf{q}_j - \mathbf{q}_j\mathbf{q}_j \\ &= \mathbf{q}_j (1 - \mathbf{q}_j) \end{aligned} $
+
+2\. å½“$j \ne i$æ—¶
+
+$\begin{aligned}\frac{\partial{\mathbf{q}_j}}{\partial{\mathbf{h}_i}} &= - \frac{e^{\mathbf{h}_j} \cdot e^{\mathbf{h}_i}}{\left(e^{\mathbf{h}_i} + \sum_{l \neq i}{e^{\mathbf{h}_l}}\right)^2} \\&= -\mathbf{q}_j\mathbf{q}_i\end{aligned} 					$
