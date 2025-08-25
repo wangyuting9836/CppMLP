@@ -37,7 +37,7 @@ void Tensor::backward_calculate_left_grad()
 	case CalculateFun::VECTOR_EXP:
 		for (int i = 0; i < this->col_dimension; ++i)
 		{
-			this->left->grad[0][i] += this->grad[0][i] * std::expf(this->left->data[0][i]);
+			this->left->grad[0][i] += this->grad[0][i] * std::exp(this->left->data[0][i]);
 		}
 		break;
 	case CalculateFun::VECTOR_LOG:
@@ -148,7 +148,7 @@ void Tensor::forward_calculate_data()
 	case CalculateFun::VECTOR_EXP:
 		for (int i = 0; i < col_dimension; ++i)
 		{
-			data[0][i] = std::expf(left->data[0][i]);
+			data[0][i] = std::exp(left->data[0][i]);
 		}
 		break;
 	case CalculateFun::VECTOR_LOG:
@@ -177,7 +177,7 @@ void Tensor::forward_calculate_data()
 	{
 		for (int i = 0; i < left->col_dimension; ++i)
 		{
-			left->soft_max_data[i] = std::expf(left->data[0][i]);
+			left->soft_max_data[i] = std::exp(left->data[0][i]);
 		}
 		float sum = std::accumulate(left->soft_max_data.begin(), left->soft_max_data.end(), 0.0f);
 		std::for_each(left->soft_max_data.begin(), left->soft_max_data.end(), [=](float& v)

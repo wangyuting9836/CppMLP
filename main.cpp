@@ -59,11 +59,13 @@ MNIST_DATA_set read_MNIST_DATA()
 	return { dataset.training_images, dataset.test_images, training_labels, test_labels };
 }
 
-//线性回归
+// 线性回归
 void linear_regression()
 {
+	// 均匀分布 U(0, 10)
 	std::uniform_real_distribution<float> u_dist(0.0f, 10.0f);
-	std::normal_distribution<float> n_dist(0.0f, 2.0f);
+	// 正态分布 N(0, 1)
+	std::normal_distribution<float> n_dist(0.0f, 1.0f);
 
 	int train_num = 40000;
 	int test_num = 10000;
@@ -80,6 +82,7 @@ void linear_regression()
 	{
 		float x1 = u_dist(rand_generator());
 		float x2 = u_dist(rand_generator());
+		// 带噪声的值
 		float y = true_w1 * x1 + true_w2 * x2 + true_b + n_dist(rand_generator());
 		training_datas[i].emplace_back(x1);
 		training_datas[i].emplace_back(x2);
@@ -90,6 +93,7 @@ void linear_regression()
 	{
 		float x1 = u_dist(rand_generator());
 		float x2 = u_dist(rand_generator());
+		// 带噪声的值
 		float y = true_w1 * x1 + true_w2 * x2 + true_b + n_dist(rand_generator());
 		test_datas[i].emplace_back(x1);
 		test_datas[i].emplace_back(x2);
@@ -99,8 +103,8 @@ void linear_regression()
 	const int batch_size = 10;
 	float lr = 0.001;
 
+	// 构建网络
 	Net nn;
-
 	nn.add_layer(2, 1, FCLayer::ActivationFun::NONE);
 	nn.set_loss_function(Net::LossFun::MEAN_SQUARED);
 	nn.init_parameters(0.0f, 0.02f);
@@ -111,7 +115,8 @@ void linear_regression()
 	std::vector<int> data_index_vec(train_num, 0);
 	std::iota(data_index_vec.begin(), data_index_vec.end(), 0);
 
-	for (int epoch = 0; epoch < 10; ++epoch)
+	// 训练
+	for (int epoch = 0; epoch < 20; ++epoch)
 	{
 		float train_loss_value = 0.0f;
 		std::shuffle(begin(data_index_vec), end(data_index_vec), rand_generator());
@@ -255,7 +260,7 @@ void MNIST_DATA_softmax()
 }
 */
 
-//识别手写数字，使用MINST数据集训练
+// 识别手写数字，使用MNIST数据集训练
 void MNIST_DATA_mlp()
 {
 	MNIST_DATA_set dataset = read_MNIST_DATA();
@@ -266,9 +271,8 @@ void MNIST_DATA_mlp()
 	const int batch_size = 10;
 	float lr = 0.001;
 
-	//构建网络
+	// 构建网络
 	Net nn;
-
 	nn.add_layer(784, 256, FCLayer::ActivationFun::RELU);
 	nn.add_layer(256, 10, FCLayer::ActivationFun::NONE);
 	nn.set_loss_function(Net::LossFun::CROSS_ENTROPY);
@@ -280,7 +284,7 @@ void MNIST_DATA_mlp()
 	std::vector<int> data_index_vec(train_num, 0);
 	std::iota(data_index_vec.begin(), data_index_vec.end(), 0);
 
-	//训练
+	// 训练
 	for (int epoch = 0; epoch < 10; ++epoch)
 	{
 		float train_loss_value = 0.0f;
@@ -307,7 +311,7 @@ void MNIST_DATA_mlp()
 		std::cout << "loss: " << train_loss_value / static_cast<float >(train_num) << std::endl;
 	}
 
-	//在训练集上的准确率
+	// 在训练集上的准确率
 	float train_lose = 0.0f;
 	int train_acc_num = 0;
 	for (int i = 0; i < train_num; ++i)
@@ -328,7 +332,7 @@ void MNIST_DATA_mlp()
 	std::cout << "train_acc: " << static_cast<float>(train_acc_num) / static_cast<float>(train_num) << ", train_loss: "
 			  << train_lose / static_cast<float>(train_num) << std::endl;
 
-	//在测试集上的准确率
+	// 在测试集上的准确率
 	float test_lose = 0.0f;
 	int test_acc_num = 0;
 	for (int i = 0; i < test_num; ++i)
@@ -350,6 +354,7 @@ void MNIST_DATA_mlp()
 
 int main()
 {
+	std::cout << "--------------" << std::endl;
 	linear_regression();
 	std::cout << "--------------" << std::endl;
 	//MNIST_DATA_softmax();
