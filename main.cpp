@@ -166,7 +166,7 @@ void linear_regression()
 	std::cout << "test_acc: " << static_cast<float>(test_acc_num) / static_cast<float>(test_num) << ", test_loss: "
 			  << test_lose / static_cast<float>(test_num) << std::endl;
 }
-
+/*
 void MNIST_DATA_softmax()
 {
 	MNIST_DATA_set dataset = read_MNIST_DATA();
@@ -253,6 +253,7 @@ void MNIST_DATA_softmax()
 	std::cout << "test_acc: " << static_cast<float>(test_acc_num) / static_cast<float>(test_num) << ", test_loss: "
 			  << test_lose / static_cast<float>(test_num) << std::endl;
 }
+*/
 
 //识别手写数字，使用MINST数据集训练
 void MNIST_DATA_mlp()
@@ -351,8 +352,8 @@ int main()
 {
 	linear_regression();
 	std::cout << "--------------" << std::endl;
-	MNIST_DATA_softmax();
-	std::cout << "--------------" << std::endl;
+	//MNIST_DATA_softmax();
+	//std::cout << "--------------" << std::endl;
 	MNIST_DATA_mlp();
 	return 0;
 }
